@@ -3,17 +3,21 @@ import (
 )
 
 {{range .Methods}}
-type {{ .HandlerName }}Req struct {
+type {{ .FunctionName }}Req struct {
 	g.Meta   `path:"{{.Path}}" tags:"{{ $.InterfaceName }}" method:"{{.Method}}"`
 	{{if eq .Method "POST" "PUT"}}
-		*{{.Request}}
+		{{range .Request.Fields }}
+        	{{ .Name}} {{ .Type}}
+        {{end}}
 	{{end}}
 }
 
-type {{ .HandlerName }}Res struct {
+type {{ .FunctionName }}Res struct {
 	g.Meta `mime:"application/json"`
 	{{if eq .Method "GET"}}
-		*{{.Reply}}
+		{{range .Response.Fields }}
+            {{ .Name}} {{ .Type}}
+        {{end}}
 	{{end}}
 }
 {{end}}
