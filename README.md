@@ -1,5 +1,5 @@
 # protoc-gen-gf-api
-从 protobuf 文件中生成使用 goframe 的标准路由
+Generate [GoFrame](https://github.com/gogf/gf) api via ProtoBuf
 
-## 使用说明
-见主仓库 [protoc-gen-gf](https://github.com/zcyc/protoc-gen-gf)
+## Usage
+[protoc-gen-gf](https://github.com/zcyc/protoc-gen-gf)
